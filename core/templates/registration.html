@@ -1,4 +1,7 @@
 {% load static %}
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
 <!DOCTYPE html >
 <html lang="en">
     <head>
@@ -17,25 +20,25 @@
                     {% csrf_token %}
                     <h1>Sign Up</h1>
                     <div class="input-group">
-                        <input type="text" required>
-                        <label for ="">Username</label>
+                        <input type="text" id = "username" name = "username"required>
+                        <label for ="username">Username</label>
                     </div>
                     <div class="input-group">
-                        <input type="email" required>
-                        <label for ="">Email</label>
+                        <input type="email" id="email"name="email" required>
+                        <label for ="email" >Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" required>
-                        <label for ="">Password</label>
+                        <input type="password" id="password"name="password" required>
+                        <label for ="password">Password</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" required>
-                        <label for ="">Confirm Password</label>
+                        <input type="password"id="confirm_password"name="confirm_password" required>
+                        <label for ="confirm_password">Confirm Password</label>
                     </div>
                     <div class="role-selection">
-                        <label for="role">Choose Your Role:</label><br>
+                        <label for="role"id="role">Choose Your Role:</label>
                         <label>
-                            <input type="radio" name="role" value="Employer" required> Employer</label>
+                            <input type="radio" name="role" value="Employer" checked> Employer</label>
                         <label>
                             <input type="radio" name="role" value="Worker"> Worker
                         </label><label>
@@ -44,9 +47,15 @@
                     <div class ="remember">
                         <label ><input type="checkbox">I agree to the terms & conditions</label>
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit"name= "signUp">Sign Up</button>
                     <div class="signUp-link">
                         <p>Already have an account? <a href="{% url 'signin' %}" class="signInBtn-link">Log in</a></p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class='bx bxl-google'></i></a>
+                        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href="#"><i class='bx bxl-github'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
                     </div>
                 </form>
             </div>

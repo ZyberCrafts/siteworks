@@ -18,16 +18,19 @@
                     <h1>Login</h1>
                     <div class="input-group">
                         <input type="text" required>
-                        <label for ="">Username</label>
+                        <label for ="username">Username</label>
                     </div>
                     <div class="input-group">
                         <input type="password" required>
-                        <label for ="">Password</label>
+                        <label for ="password">Password</label>
+                    </div>
+                    <div>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
                     </div>
                     <div class ="remember">
-                        <label ><input type="checkbox">Remember me</label>
+                        <label ><input type="checkbox"name="checkbox" required>Remember me</label>
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit"name = "login" id = "login">Login</button>
                     <div class="signUp-link">
                         <p>Don't have an account? <a href="{% url 'registration' %}" class="signUpBtn-link">Sign up</a></p>
                     </div>

@@ -1,31 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User 
 import datetime
-#users in our database
-class Users(models.Model):
-    username = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    phone_number = models.CharField(max_length=13)
-    password = models.CharField(max_length=50)
-
-    @property
-    def role(self):
-        return self.profile.role
-    def __str__(self):
-        return f'{self.username}'
 
 class Profile(models.Model):
     ROLE_CHOICES = [
-        ('EMPLOYER', 'Employer'),
-        ('WORKER', 'Worker'),
-        ('AMBASSADOR', 'Ambassador'),
+        ('Employer', 'Employer'),
+        ('Worker', 'Worker'),
+        ('Ambassador', 'Ambassador'),
     ]
 
-    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='WORKER')
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='profile')
-    bio = models.TextField(max_length=500, default='', blank=False, null=False)
-    skills = models.CharField(max_length=30)
-    location = models.CharField(max_length=15)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='Employer')
+    bio = models.TextField(max_length=500, blank=True)
+    skills = models.CharField(max_length=30, blank=True)
+    location = models.CharField(max_length=15, blank=True)
     rating = models.IntegerField(default=1)
     profile_picture = models.ImageField(upload_to='uploads/profile/')
 

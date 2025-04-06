@@ -71,6 +71,9 @@ h1{
 .input-group input:valid~label{
     top: -5px;
 }
+.forgot-link{
+    margin-bottom: 10px;
+}
 .remember{
     margin: -5px 0 15px 5px;
 }
