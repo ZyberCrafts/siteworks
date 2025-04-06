@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>worksite</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico'%}" />
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <header>
+            <div id = "navbar" class="obj-width">
+                <a href = "{% url 'home' %}"><img class = "logo" src="{% static 'images/sitelogo.png' %}" alt= "logo"></a>
+                <ul id = "menu">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="">Browse Jobs</a></li>
+                    <li><a href="">Post Jobs</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">About Us</a></li>
+                    <button onclick= "window.location.href='{% url 'login' %}' " id ="join">Join</button>
+                </ul>
+                <i id="bar"class='bx bx-menu-alt-right'></i>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="hero-box obj-width">
+                <div class="h-left">
+                    <h1>Find the perfect casual Work and home based chores Services to save time for other businesses.</h1>
+                    <p>Work with talented people at the most affordable prices to get the most out of your time and cost.</p>
+                    <div class="search">
+                        <input type="text" placeholder="Search your jobs here...">
+                        <a id="search"href ="#">Search</a>
+                    </div>
+                </div>
+                <div class="h-right">
+                    <img src="{% static 'images/img.jpg' %}" alt="Hero Image" class="hero-img">
+                </div>
+            </div>
+
+        </section>
+        <section class = "features sec-space obj-width">
+            <h2> Browse by Category</h2>
+            <div class="fe-box">
+                <div >
+                    <img src="{% static 'images/architecture.jpeg' %}" alt="Job Image">
+                    <h3>Architects</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/baking.jpg' %}" alt="Job Image">
+                    <h3>Baking</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/carpenter.jpeg' %}" alt="Job Image">
+                    <h3>Capenter</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/carpetCleaning.jpeg' %}" alt="Job Image">
+                    <h3>Carpet Cleaning</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/CCTVs.webp' %}" alt="Job Image">
+                    <h3>CCTVs Installs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/cooks.jpg' %}" alt="Job Image">
+                    <h3>Cooks and Chefs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/babyCare.jpg' %}" alt="Job Image">
+                    <h3>Day Care Services</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/driver.jpg' %}" alt="Job Image">
+                    <h3>Drivers-for hire</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/sateliteInstaller.webp' %}" alt="Job Image">
+                    <h3>DSTVs Installers</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/electicians.jpg' %}" alt="Job Image">
+                    <h3>Electricians</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/english.avif' %}" alt="Job Image">
+                    <h3>English Tutoring</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/errands.jpg' %}" alt="Job Image">
+                    <h3>Errands Shopping</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/dj.jpg' %}" alt="Job Image">
+                    <h3>Events DJ</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/caregiver.webp' %}" alt="Job Image">
+                    <h3>Caregiver</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/fridge.webp' %}" alt="Job Image">
+                    <h3>Fridge Repairs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/hair.jpeg' %}" alt="Job Image">
+                    <h3>Hair Braiding</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/handy.jpeg' %}" alt="Job Image">
+                    <h3>Handyman</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/design.jpg' %}" alt="Job Image">
+                    <h3>Interior Designs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/painter.jpg' %}" alt="Job Image">
+                    <h3>Interior Painter</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/scaping.jpeg' %}" alt="Job Image">
+                    <h3>Landscaping</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/makeup.jpeg' %}" alt="Job Image">
+                    <h3>Makeup and Beauty</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/mama.webp' %}" alt="Job Image">
+                    <h3>Mama Fua</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/mechanic.jpeg' %}" alt="Job Image">
+                    <h3>Mobile Auto Repairs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/barber.jpg' %}" alt="Job Image">
+                    <h3>Mobile Barber</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/pest.png' %}" alt="Job Image">
+                    <h3>Pest Fumigation</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/photographer.avif' %}" alt="Job Image">
+                    <h3>Photographer</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/plumber.jpeg' %}" alt="Job Image">
+                    <h3>Plumber</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/carRental.jpeg' %}" alt="Job Image">
+                    <h3>Rent a Car/Truck</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/mounting.jpeg' %}" alt="Job Image">
+                    <h3>TV Mounting Services</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/wedding.jpeg' %}" alt="Job Image">
+                    <h3>Wedding Planner</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/washingMachine.webp' %}" alt="Job Image">
+                    <h3>Washing Machine Tech</h3>
+                </div>
+            </div>
+        </section>
+        <section class = "features sec-space obj-width">
+            <h2> Trending Projects</h2>
+            <div class="fe-box">
+                <div >
+                    <img src="{% static 'images/caregiver.webp' %}" alt="Job Image">
+                    <h3>Caregiver</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/delivery.avif' %}" alt="Job Image">
+                    <h3>Deliver Rider</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/catering.webp' %}" alt="Job Image">
+                    <h3>Event Catering</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/gas.jpg' %}" alt="Job Image">
+                    <h3>Gas Supplier</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/hairCut.jpg' %}" alt="Job Image">
+                    <h3>Hair Cut</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/houseCleaning.jpeg' %}" alt="Job Image">
+                    <h3>House Cleaning</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/localMoving.jpg' %}" alt="Job Image">
+                    <h3>Local Moving </h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/minor.jpeg' %}" alt="Job Image">
+                    <h3>Minor Home Repairs</h3>
+                </div>
+                <div >
+                    <img src="{% static 'images/water.jpg' %}" alt="Job Image">
+                    <h3>Water Delivery</h3>
+                </div>
+            </div>
+        </section>
+        <section class="features sec-space obj-width">
+            <h2>Need something done?</h2>
+            <p> Most viewed and all-time top-selling services</p>
+            <div class="fe-box">
+                <div>
+                    <img src = "{% static 'images/fe 1.png' %}" alt="briefcase">
+                    <h3>Post a job</h3>
+                    <p>Post your job listing. Simply fill in a title, description.</p>
+                </div>
+                <div>
+                    <img src = "{% static 'images/fe 2.png' %}" alt="briefcase">
+                    <h3>Choose freelancers</h3>
+                    <p>Post your job listing. Simply fill in a title, description.</p>
+                </div>
+                <div>
+                    <img src = "{% static 'images/fe 3.png' %}" alt="briefcase">
+                    <h3>Pay Safely</h3>
+                    <p>Post your job listing. Simply fill in a title, description.</p>
+                </div>
+                <div>
+                    <img src = "{% static 'images/fe 4.png' %}" alt="briefcase">
+                    <h3>We're here to help</h3>
+                    <p>Post your job listing. Simply fill in a title, description.</p>
+                </div>
+            </div>
+        </section>
+        <section class = "team sec-space">
+            <h2>Highest Rated Workers</h2>
+            <p>Most viewed and all-time top-selling services.</p>
+            <div class="team-container">
+                <div class="f1-box">
+                    <img src="{% static 'images/fl-1.png' %}" alt="Team Member">
+                    <h3>Jane</h3>
+                    <div class="skill">
+                        <span id="key">Mama Fua</span>
+                    </div>
+                    <button id = "profile">View Profile</button>
+                </div>
+                <div class="f1-box">
+                    <img src="{% static 'images/fl-2.png' %}" alt="Team Member">
+                    <h3>Festus</h3>
+                    <div class="skill">
+                        <span id="key">Deliver Rider</span>
+                    </div>
+                    <button id = "profile">View Profile</button>
+                </div>
+                <div class="f1-box">
+                    <img src="{% static 'images/fl-3.png' %}" alt="Team Member">
+                    <h3>Peter</h3>
+                    <div class="skill">
+                        <span id="key">Mobile Barber</span>
+                    </div>
+                    <button id = "profile">View Profile</button>
+                </div>
+                <div class="f1-box">
+                    <img src="{% static 'images/fl-4.png' %}" alt="Team Member">
+                    <h3>John</h3>
+                    <div class="skill">
+                        <span id="key">Handy Man</span>
+                    </div>
+                    <button id = "profile">View Profile</button>
+                </div>
+            </div>
+        </section>
+        <footer class= "footer sec-space">
+            <div class="obj-width">
+                <div class = "top">
+                    <div>
+                        <img class="logo"src="{% static 'images/sitelogo.png' %}" alt= "logo">
+                        <p>Search your desired jobs.</p>
+                    </div>
+                    <div>                
+                        <a href ="http://www.facebook.com"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href ="http://www.instagram.com"><i class='bx bxl-instagram'></i></a>
+                        <a href ="http://www.twitter.com"><i class='bx bxl-twitter' ></i></a>
+                        <a href ="http://www.telegram.com"><i class='bx bxl-telegram' ></i></a>
+                    </div>
+                </div>
+                <div class = "bottom">
+                    <div>
+                        <h3>Project</h3>
+                        <a href ="#">Changelog</a>
+                        <a href ="#">Status</a>
+                        <a href ="#">License</a>
+                        <a href ="#">All Version</a>
+                    </div>
+                    <div>
+                        <h3>Community</h3>
+                        <a href ="#">GitHub</a>
+                        <a href ="#">Issues</a>
+                        <a href ="#">Project</a>
+                        <a href ="#">Twitter</a>
+                    </div>
+                    <div>
+                        <h3>Help</h3>
+                        <a href ="#">Support</a>
+                        <a href ="#">Troubleshooting</a>
+                        <a href ="#">Contact Us</a>
+                    </div>
+                    <div>
+                        <h3>Others</h3>
+                        <a href ="#">Terms and Conditions/a>
+                        <a href ="#">Privacy</a>
+                        <a href ="#">License</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
+</html>

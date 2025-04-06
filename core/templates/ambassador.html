@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambassador Dashboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ambassador Dashboard</h1>
+    <div class="container">
+        <div class="buttons">
+            <button onclick="showAmbassadorDashboard()">Appointments</button>
+            <button onclick="showDisputeDashboard()">Disputes</button>
+        </div>
+
+        <!-- Ambassador Dashboard -->
+        <div id="ambassador-dashboard" class="dashboard">
+            <div class="card">
+                <h2>Appointment Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Name</th>
+                            <th onclick="sortTable(1)">Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requests"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Dispute Dashboard -->
+        <div id="dispute-dashboard" class="dashboard" style="display: none;">
+            <div class="card">
+                <h2>Active Disputes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>User</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="disputes"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAmbassadorDashboard() {
+            document.getElementById("ambassador-dashboard").style.display = "block";
+            document.getElementById("dispute-dashboard").style.display = "none";
+        }
+
+        function showDisputeDashboard() {
+            document.getElementById("dispute-dashboard").style.display = "block";
+            document.getElementById("ambassador-dashboard").style.display = "none";
+            loadDisputeDashboard(); // Load the dispute data when switched
+        }
+
+        function loadDisputeDashboard() {
+            fetch("/api/disputes")
+                .then((res) => res.json())
+                .then((data) => {
+                    const disputesTable = document.getElementById("disputes");
+                    if (data.length === 0) {
+                        disputesTable.innerHTML = "<tr><td colspan='4'>No active disputes</td></tr>";
+                    } else {
+                        data.forEach((dispute) => {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `
+                                <td>${dispute.id}</td>
+                                <td>${dispute.user}</td>
+                                <td>${dispute.status}</td>
+                                <td><button onclick="resolveDispute(${dispute.id})">Resolve</button></td>
+                            `;
+                            disputesTable.appendChild(row);
+                        });
+                    }
+                });
+        }
+
+        function resolveDispute(id) {
+            fetch(`/api/resolve/${id}`, { method: "POST" })
+                .then(() => location.reload());
+        }
+
+        function sortTable(columnIndex) {
+            const table = document.querySelector("table tbody");
+            const rows = Array.from(table.rows);
+            const sortedRows = rows.sort((a, b) => {
+                const aText = a.cells[columnIndex].innerText.toLowerCase();
+                const bText = b.cells[columnIndex].innerText.toLowerCase();
+                return aText.localeCompare(bText);
+            });
+            table.innerHTML = "";
+            sortedRows.forEach(row => table.appendChild(row));
+        }
+
+        fetch("/api/appointments")
+            .then((res) => res.json())
+            .then((data) => {
+                const requestsTable = document.getElementById("requests");
+                if (data.length === 0) {
+                    requestsTable.innerHTML = "<tr><td colspan='3'>No appointment requests</td></tr>";
+                } else {
+                    data.forEach((req) => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${req.name}</td>
+                            <td>${req.location}</td>
+                            <td><button onclick="approveWorker(${req.id})">Approve</button></td>
+                        `;
+                        requestsTable.appendChild(row);
+                    });
+                }
+            });
+
+        function approveWorker(id) {
+            fetch(`/api/approve/${id}`, { method: "POST" })
+                .then(() => location.reload());
+        }
+    </script>
+</body>
+</html>
