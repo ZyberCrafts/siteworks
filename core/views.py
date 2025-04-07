@@ -34,12 +34,12 @@ def registration(request):
             Profile.objects.create(user=user, role=role)  # Create associated Profile
 
             # Redirect to login page after successful registration
-            return redirect('login')  # Replace 'login' with the name of your login URL
+            return redirect('login')
         else:
             return render(request, 'registration.html', {'error': 'Please fill all the fields correctly.'})
 
     return render(request, 'registration.html')
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

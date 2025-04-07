@@ -1,4 +1,7 @@
 {% load static %}
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
 <!DOCTYPE html >
 <html lang="en">
     <head>
@@ -13,15 +16,15 @@
 <!-- Login Window-->
         <div class ="wrapper">
             <div class="form-wrapper sign-in"><!--add id="login"--> 
-                <form method= "POST"action=""><!-- action="{% url 'login' %}" -->
+                <form method= "POST"action="{% url 'login' %}"><!-- action="{% url 'login' %}" -->
                     {% csrf_token %}
                     <h1>Login</h1>
                     <div class="input-group">
-                        <input type="text" required>
+                        <input type="text" id="username" name="username" required>
                         <label for ="username">Username</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" required>
+                        <input type="password"id="password" name="password" required>
                         <label for ="password">Password</label>
                     </div>
                     <div>

@@ -9,16 +9,18 @@ class Profile(models.Model):
         ('Ambassador', 'Ambassador'),
     ]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='Employer')
-    bio = models.TextField(max_length=500, blank=True)
-    skills = models.CharField(max_length=30, blank=True)
-    location = models.CharField(max_length=15, blank=True)
-    rating = models.IntegerField(default=1)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile') 
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES)  
+    bio = models.TextField(max_length=500, blank=True)  
+    skills = models.CharField(max_length=30, blank=True)  
+    location = models.CharField(max_length=15, blank=True)  
+    rating = models.IntegerField(default=1)  
     profile_picture = models.ImageField(upload_to='uploads/profile/')
+    def __str__(self):
+        return f'{self.user.username} - {self.role}'
 
     def __str__(self):
-        return f'{self.user.username}'
+        return f'{self.user.username} - {self.role}'
     
 class Job(models.Model):
     title = models.CharField(max_length=20)

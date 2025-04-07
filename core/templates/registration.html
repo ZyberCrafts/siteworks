@@ -16,7 +16,7 @@
 <!-- register Window-->
         <div class = "wrapper">
             <div class="form-wrapper sign-up"><!--add id="login"--> 
-                <form method="POST" action=""><!-- action="{% url 'login' %}" -->
+                <form method="POST" action="{% url 'registration' %}"><!-- action="{% url 'login' %}" -->
                     {% csrf_token %}
                     <h1>Sign Up</h1>
                     <div class="input-group">
@@ -38,11 +38,11 @@
                     <div class="role-selection">
                         <label for="role"id="role">Choose Your Role:</label>
                         <label>
-                            <input type="radio" name="role" value="Employer" checked> Employer</label>
+                            <input type="radio" name="role" id = "employer" value="Employer" checked> Employer</label>
                         <label>
-                            <input type="radio" name="role" value="Worker"> Worker
+                            <input type="radio" name="role"id="worker" value="Worker"> Worker
                         </label><label>
-                            <input type="radio" name="role" value="Ambassador"> Ambassador</label>
+                            <input type="radio" name="role" id="ambassador" value="Ambassador"> Ambassador</label>
                     </div>
                     <div class ="remember">
                         <label ><input type="checkbox">I agree to the terms & conditions</label>
