@@ -18,22 +18,30 @@
             <div class="form-wrapper sign-up"><!--add id="login"--> 
                 <form method="POST" action="{% url 'registration' %}"><!-- action="{% url 'login' %}" -->
                     {% csrf_token %}
+                    {{ form.as_p }}
                     <h1>Sign Up</h1>
                     <div class="input-group">
                         <input type="text" id = "username" name = "username"required>
                         <label for ="username">Username</label>
                     </div>
                     <div class="input-group">
-                        <input type="email" id="email"name="email" required>
-                        <label for ="email" >Email</label>
+                        <input type="email" id="email"name="email" placeholder="Enter your email" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" required>
+                        <label for ="email">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" id="password"name="password" required>
+                        <input type="password" id="password"name="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"  required>
                         <label for ="password">Password</label>
                     </div>
                     <div class="input-group">
                         <input type="password"id="confirm_password"name="confirm_password" required>
                         <label for ="confirm_password">Confirm Password</label>
+                    </div>
+                    <div class="input-phone">
+                        <label>Phone Number:</label>
+                        <select id="country-code">
+                            <option value="+254">+254 (Kenya)</option>
+                        </select>
+                        <input type="text" placeholder="e.g 712345678" name= "phone_number" id="phone_number" pattern="^\d{9}$" required/>
                     </div>
                     <div class="role-selection">
                         <label for="role"id="role">Choose Your Role:</label>
@@ -45,7 +53,7 @@
                             <input type="radio" name="role" id="ambassador" value="Ambassador"> Ambassador</label>
                     </div>
                     <div class ="remember">
-                        <label ><input type="checkbox">I agree to the terms & conditions</label>
+                        <label ><input type="checkbox" required>I agree to the terms & conditions </label>
                     </div>
                     <button type="submit"name= "signUp">Sign Up</button>
                     <div class="signUp-link">

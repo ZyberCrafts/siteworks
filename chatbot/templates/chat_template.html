@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SiteWorks Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chatArea { margin-top: 20px; }
+        .message { margin-bottom: 10px; }
+        .user { color: blue; }
+        .bot { color: green; }
+    </style>
+</head>
+<body>
+    <h2>SiteWorks Chatbot</h2>
+    <div>
+        <input type="text" id="userMessage" placeholder="Type your message..." />
+        <!-- Optionally, include an input for user role to simulate different types -->
+        <select id="userRole">
+            <option value="default">Default</option>
+            <option value="Employer">Employer</option>
+            <option value="Worker">Worker</option>
+            <option value="Ambassador">Ambassador</option>
+        </select>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="chatArea"></div>
+
+    <script>
+        async function sendMessage() {
+            const messageInput = document.getElementById("userMessage");
+            const roleSelect = document.getElementById("userRole");
+            const message = messageInput.value.trim();
+            const role = roleSelect.value;
+            if (!message) return;
+
+            // Append the user's message to chatArea
+            const chatArea = document.getElementById("chatArea");
+            chatArea.innerHTML += `<div class="message user"><strong>You:</strong> ${message}</div>`;
+
+            // Fetch the chatbot's response from the Django view
+            const response = await fetch(`/chatbot/get-response/?message=${encodeURIComponent(message)}&role=${role}`);
+            const data = await response.json();
+
+            // Append the chatbot's response to chatArea
+            chatArea.innerHTML += `<div class="message bot"><strong>Bot:</strong> ${data.response}</div>`;
+
+            // Clear the message input
+            messageInput.value = "";
+        }
+    </script>
+</body>
+</html>

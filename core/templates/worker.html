@@ -1,12 +1,183 @@
-<!DOCTYPE html >
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>worker Dashboard</title>
-    </head>
-    <body>
-        <h1>Welcome to the worker Dashboard</h1>
-    </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>WORKER PROFILE</h2>
+        <label class="full-width">Profile Image:</label>
+        <div class="image-container full-width">
+            <input type="file" id="profileImage" accept="image/*">
+            <div id="imageBox">
+                <img id="imagePreview" src=""  style="display: none;">
+            </div>
+        </div>
+        
+        <form id="profileForm">
+            
+            <label><srong>Username:</srong></label>
+            <input type="text" id="username" value="{{ request.user.username }}" readonly>
+            <br><br>
+            <label><strong>Email</strong></label>
+            <input type="email" id="email" value="{{ request.user.email }}" readonly>
+            <br><br>
+            <label><strong>Location:</strong></label>
+            <input type="text" id="location" placeholder="Enter your location" required><br>
+            <button type="button" onclick="getLocation()">Use Current Location</button>
+            <div id="map" style="width: 50%; height: 100px; margin-top: 5px;"></div>
+            <br><br>
+            <label><strong>Phone Number:</strong></label>
+            <input type="text" id="phone_number"name="phone_number" value="{{ request.user.profile.phone_number }}" readonly>
+            <br><br>
+            <label><strong>Skills</strong></label>
+            <textarea id="skills" maxlength="200"></textarea>
+            <br><br>
+            <label><strong>Rate (KES per unit): </strong</label>
+            <input type="number" id="rate" required>
+            <br><br>
+            <label><strong>payment Method:</strong></label>
+            <select id="paymentMethod" required>
+                <option value="mpesa">M-Pesa</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank">Bank Transfer</option>
+            </select>
+            <br><br>
+            <button type="submit" class="full-width">Save Profile</button>
+            <br><br>
+        </form>
+        <button onclick="loadProfile()" class="full-width" >Load Profile</button>
+    </div>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById("location").value = data.display_name `${latitude}, ${longitude}`;
+            document.getElementById("map").innerHTML = `<iframe width="100%" height="300px" 
+                src="https://www.google.com/maps?q=${latitude},${longitude}&output=embed"></iframe>`;
+        }
+
+        function showError(error) {
+            const errors = ["User denied location request.", "Location information unavailable.", "Request timeout.", "Unknown error."];
+            alert(errors[error.code] || "An error occurred.");
+        }
+
+        document.getElementById("profileImage").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("imagePreview").src = e.target.result;
+                    document.getElementById("imagePreview").style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById("profileForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const profile = {
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                location: document.getElementById("location").value,
+                phone: document.getElementById("phone").value,
+                skills: document.getElementById("skills").value,
+                rate: document.getElementById("rate").value,
+                paymentMethod: document.getElementById("paymentMethod").value,
+                image: document.getElementById("imagePreview").src
+            };
+            localStorage.setItem("profile", JSON.stringify(profile));
+            alert("Profile saved successfully!");
+        });
+
+        function loadProfile() {
+            const savedProfile = JSON.parse(localStorage.getItem("profile"));
+            if (savedProfile) {
+                document.getElementById("username").value = savedProfile.username;
+                document.getElementById("email").value = savedProfile.email;
+                document.getElementById("location").value = savedProfile.location;
+                document.getElementById("phone").value = savedProfile.phone;
+                document.getElementById("skills").value = savedProfile.skills;
+                document.getElementById("rate").value = savedProfile.rate;
+                document.getElementById("paymentMethod").value = savedProfile.paymentMethod;
+                if(savedProfile.image){
+                document.getElementById("imagePreview").src = savedProfile.image;
+                document.getElementById("imagePreview").style.display="block";}
+                alert("Profile loaded successfully!");
+            } else {
+                alert("No saved profile found.");
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            height: 100vh;
+            color:black;
+            font-size: large;
+        }
+        .container {
+            background:palevioletred;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(211, 204, 204, 0.1);
+            width: 100%;
+            
+        }
+        form {
+            display: block;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+            font-size: 26px;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        button{
+            width: 50%;
+            padding: 15px;
+            color: rgb(194, 103, 103);
+            font-size: 26px;
+            background-position: center;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 26px;
+            height: 80px;;
+        }
+        .image-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</body>
+</html>
+

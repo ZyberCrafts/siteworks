@@ -1,4 +1,9 @@
 {% load static %}
+{% if error %}
+    <script>
+        alert("{{ error }}");
+    </script>
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,6 +16,7 @@
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico'%}" />
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
         <!-- Navigation-->
@@ -89,7 +95,7 @@
                 </div>
                 <div >
                     <img src="{% static 'images/english.avif' %}" alt="Job Image">
-                    <h3>English Tutoring</h3>
+                    <h3>French Tutoring</h3>
                 </div>
                 <div >
                     <img src="{% static 'images/errands.jpg' %}" alt="Job Image">
@@ -322,6 +328,27 @@
                 </div>
             </div>
         </footer>
+<!-- Floating Chatbot Icon -->
+    <div id="chatbot-icon" onclick="toggleChatbot()" style="position: fixed; bottom: 20px; right: 20px; cursor: pointer; z-index: 1001;">
+        <!-- Using FontAwesome chat bubble icon -->
+        <i class="fa-solid fa-comment-dots" style="font-size: 48px; color: #007bff;"></i>
+    </div>
+
+    <!-- Chatbot Window: Initially hidden -->
+    <div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; height: 400px; background: #fff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); z-index: 1000;">
+        <header style="background: #007bff; color: white; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px; position: relative;">
+            <span>SiteWorks Chatbot</span>
+            <button onclick="toggleChatbot()" style="position: absolute; top: 5px; right: 10px; background: transparent; border: none; color: white; font-size: 18px; cursor: pointer;">&times;</button>
+        </header>
+        <div id="chatArea" style="padding: 10px; overflow-y: auto; height: 280px; background: #f9f9f9;"></div>
+        <footer style="padding: 10px; background: #eee; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+            <input type="text" id="userMessage" placeholder="Type your message..." style="width: 70%; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+            <button onclick="sendMessage()" style="padding: 5px 10px; border: none; background: #007bff; color: white; border-radius: 3px; cursor: pointer;">Send</button>
+        </footer>
+    </div>
+
+    
+    
         <script src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
