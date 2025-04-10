@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Site Works</title>
+    <style>
+        /* Reuse existing styles from about page */
+        body {
+            background-color:rgb(79, 103, 174);
+            font-size: 18px;
+        }
+
+        .navbar h1 {
+            background-color: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 500;
+            font-size: 2.1rem;
+        }
+
+        .about-hero {
+            background: linear-gradient(135deg, #923869, #74b9ff);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 1.75rem;
+
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .contact-container {
+            max-width: 1600px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 2.2rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+            font-weight: 500;
+            font-size: 1.75rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background: #0984e3;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+            font-size: 2.1rem;
+        }
+
+        .submit-btn:hover {
+            background: #0873c4;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+            font-size: 1.75rem;
+        }
+
+        .contact-item p{
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #0984e3;
+        
+        }
+    
+        .about -hero h2{
+            font-size: 2rem;
+        }
+        footer {
+            background: #657b83;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>CONTACT US</h1>
+    </nav>
+
+    <div class="about-hero">
+        <h2>Get in Touch</h2>
+        <p>We're here to help and answer any questions you might have</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>main Campus Location<br>
+                           Masinde Muliro University of Science & Technology<br>
+                           Kakamega - Webuye Road<br>
+                           P.O Box 190-50100 Kakamega</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+254 702 013 594(Office)<br>
+                            +254 734 567 890 (Mobile)<br>
+                            Hours: Mon-Fri, 8am-5pm EAT</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>support@siteworks.com<br>jobs@siteworks.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Reuse the same footer from about page -->
+    <footer>
+        <p>&copy; 2023 Site Works. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if(name && email && message) {
+                alert('Thank you for your message! We will respond within 24 hours.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Reuse existing JavaScript from about page
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Update copyright year
+        document.querySelector('footer p').innerHTML = 
+            `\u00A9 ${new Date().getFullYear()} SiteWorks. All rights reserved.`;
+    </script>
+</body>
+</html>

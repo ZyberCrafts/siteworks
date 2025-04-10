@@ -24,6 +24,16 @@ def employer(request):
     return render(request, 'employer.html')
 def worker(request):
     return render(request, 'worker.html')
+def about(request):
+    return render(request, 'about.html')
+def contact(request):
+    return render(request, 'contact.html')
+def profile_festus(request):
+    return render(request, 'profile_festus.html')
+def profile_jane(request):
+    return render(request, 'profile_jane.html')
+def profile_peter(request):
+    return render(request, 'profile_peter.html')
 def registration(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -115,7 +125,7 @@ def forgot_password(request):
 
             # Send password reset email using Brevo API
             configuration = Configuration()
-            configuration.api_key['api-key'] = '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'  # Replace with your Brevo API key
+            #configuration.api_key['api-key'] = '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'  # Replace with your Brevo API key
             api_instance = TransactionalEmailsApi(ApiClient(configuration))
 
             # Define the email content

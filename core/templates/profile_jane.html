@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane's Profile - Top Laundry Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            background-color: blueviolet;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            padding: 2rem;
+            border-bottom: 2px solid #eee;
+            font-size: 2rem;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid #0984e3;
+        }
+
+        .rating {
+            color: #ffd700;
+            font-size: 1.75rem;
+            margin: 0.5rem 0;
+        }
+
+        .badge {
+            background: #0984e3;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .services-section, .reviews-section, .about-section {
+            padding: 2rem 0;
+        }
+
+        .service-card {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 1.3rem;
+        }
+
+        .service-price {
+            color: #0984e3;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .review p{
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 1.5rem;
+        }
+
+        .contact-btn {
+            background: #0984e3;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: block;
+            margin: 1rem auto;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #0873c4;
+        }
+        .about-section {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="jane-profile.jpg" alt="Jane" class="profile-pic">
+            <h1>Jane Wanjiku</h1>
+            <div class="rating">
+                ★★★★★ (4.9/5)
+            </div>
+            <div class="badge">Top Rated Laundry Expert</div>
+            <div class="badge">500+ Jobs Completed</div>
+        </div>
+
+        <div class="about-section">
+            <h2>About Me</h2>
+            <p>Professional laundry specialist with 8 years experience. Offering:</p>
+            <ul>
+                <li>✓ Expert washing and folding</li>
+                <li>✓ Stain removal specialist</li>
+                <li>✓ Delicate fabric handling</li>
+                <li>✓ Fast turnaround (24-hour service available)</li>
+            </ul>
+        </div>
+
+        <div class="services-section">
+            <h2>Services & Pricing</h2>
+            <div class="service-card">
+                <div>
+                    <h3>Regular Laundry</h3>
+                    <p>Wash, dry, and fold</p>
+                </div>
+                <div class="service-price">Ksh 500/basket</div>
+            </div>
+            <div class="service-card">
+                <div>
+                    <h3>Premium Service</h3>
+                    <p>Including ironing and packaging</p>
+                </div>
+                <div class="service-price">Ksh 800/basket</div>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <h2>Client Reviews</h2>
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>"Jane's attention to detail is amazing! My clothes have never looked better."</p>
+                <p>- Mary W.</p>
+            </div>
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>"Reliable and professional. Highly recommend!"</p>
+                <p>- John K.</p>
+        
+   
+</body>
+</html>

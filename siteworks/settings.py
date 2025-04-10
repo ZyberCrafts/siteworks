@@ -138,7 +138,7 @@ EMAIL_HOST = 'smtp-relay.brevo.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'festusonwonga@gmail.com'
-EMAIL_HOST_PASSWORD = 'Enter API key github violates'  
+EMAIL_HOST_PASSWORD = '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'
 
 #payment
 
@@ -159,7 +159,7 @@ MPESA_SHORTCODE_TYPE = 'till_number'
 # Plaintext password for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
 
 MPESA_INITIATOR_USERNAME = 'austinnee'
-# MPESA_INITIATOR_SECURITY_CREDENTIAL = 'PEUFWSUDD9oAAfDc/dRcKVvs97q0qf3XSQEMBGPLWT1Q/u0b/6ZlhNSQo0116h' \
-# 'UUdQEcMnD8D8/j/63ClmUtdrvJzmmYiTK/yTEgRKcPDuBlwAquGa8IRycPJLXm+xyUk3iAc6WJkD2OWk/B/djDQTR86awXsznetr' \
-# 'gJkrFTROKeukLoPhak904AIVFiuHkWIkYGpjA5R/vMOwb6UFVIcdAESzTRfMjjLd7BSSC5poIh1mdxCnVCyGq7VL/1qw4p+ZRmz1' \
-# '2e4M4DjKYDLP7hAaweHp3RpmGRyAr0HN/qwvQ3rJElzvZlVC18MKjh7sF7frezQOMjuOySIuJ4t+jnvw=='
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'PEUFWSUDD9oAAfDc/dRcKVvs97q0qf3XSQEMBGPLWT1Q/u0b/6ZlhNSQo0116h' \
+ 'UUdQEcMnD8D8/j/63ClmUtdrvJzmmYiTK/yTEgRKcPDuBlwAquGa8IRycPJLXm+xyUk3iAc6WJkD2OWk/B/djDQTR86awXsznetr' \
+ 'gJkrFTROKeukLoPhak904AIVFiuHkWIkYGpjA5R/vMOwb6UFVIcdAESzTRfMjjLd7BSSC5poIh1mdxCnVCyGq7VL/1qw4p+ZRmz1' \
+ '2e4M4DjKYDLP7hAaweHp3RpmGRyAr0HN/qwvQ3rJElzvZlVC18MKjh7sF7frezQOMjuOySIuJ4t+jnvw=='

@@ -288,11 +288,11 @@ img {
     </div>
     <div class="form-group">
         <label>Phone Number:</label>
-        <input type="text" name="phone_number" id = "phone_number" placeholder="e.g 0712345678" name= "phone_number" id="phone_number" pattern="^\d{10}$" required />
+        <input type="text" name="phone_number" id = "phone_number" maxlength="13" onkeypress ="allowOnlyDigits(event)"placeholder="e.g 0712345678" name= "phone_number" id="phone_number" pattern="^\d{10}$" required />
     </div>
     <div class="form-group">
-        <label for="IDNumber">ID Number:</label>
-        <input type="text" id="IDNumber" />
+        <label for="id-number">ID Number:</label>
+        <input type="text" id="id_number"onkeypress="allowOnlyDigits"(event) required/>
     </div>
     <div class="form-group">
     </div>
