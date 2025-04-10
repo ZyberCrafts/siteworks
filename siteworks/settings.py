@@ -26,7 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+<<<<<<< HEAD
     'chatbot',
+=======
+    'mpesa'
+>>>>>>> d2363116a01b5cbf1e576bd4ca9128575be978e6
 ]
 
 MIDDLEWARE = [
@@ -114,6 +118,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -139,3 +144,29 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'festusonwonga@gmail.com'
 EMAIL_HOST_PASSWORD = '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'  
+=======
+
+#payment
+
+MPESA_ENVIRONMENT = 'sandbox'
+
+# Credentials for the daraja app
+
+MPESA_CONSUMER_KEY = 'fK7TnqdWkc8AztAKGUGPBYSlQ3AH8o7nPkqRPDOENSzFIrT8'
+MPESA_CONSUMER_SECRET = '32rotjNmHNwh0hq1z0jQfmdJiAOBXArg4MxkTiDFLA5AbrLetjsNtVDm7osp9CiK'
+
+MPESA_SHORTCODE = '600981'
+MPESA_EXPRESS_SHORTCODE = '600981'
+MPESA_SHORTCODE_TYPE = 'till_number'
+
+
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+
+# Plaintext password for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
+
+MPESA_INITIATOR_USERNAME = 'austinnee'
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'PEUFWSUDD9oAAfDc/dRcKVvs97q0qf3XSQEMBGPLWT1Q/u0b/6ZlhNSQo0116h' \
+'UUdQEcMnD8D8/j/63ClmUtdrvJzmmYiTK/yTEgRKcPDuBlwAquGa8IRycPJLXm+xyUk3iAc6WJkD2OWk/B/djDQTR86awXsznetr' \
+'gJkrFTROKeukLoPhak904AIVFiuHkWIkYGpjA5R/vMOwb6UFVIcdAESzTRfMjjLd7BSSC5poIh1mdxCnVCyGq7VL/1qw4p+ZRmz1' \
+'2e4M4DjKYDLP7hAaweHp3RpmGRyAr0HN/qwvQ3rJElzvZlVC18MKjh7sF7frezQOMjuOySIuJ4t+jnvw=='
+>>>>>>> d2363116a01b5cbf1e576bd4ca9128575be978e6
