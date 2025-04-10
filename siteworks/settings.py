@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'mpesa'
+    'mpesa',
+    'django_daraja'
 ]
 
 MIDDLEWARE = [
