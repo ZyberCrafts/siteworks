@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseServerError
 from django_daraja.mpesa.core import MpesaClient 
 import requests
 from requests.auth import HTTPBasicAuth
-from jobpool import settings
+from siteworks import settings
 
 def reg_callback(request):
    url='https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl'

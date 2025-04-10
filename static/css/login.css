@@ -71,8 +71,18 @@ h1{
 .input-group input:valid~label{
     top: -5px;
 }
-.forgot-link{
-    margin-bottom: 10px;
+.forgot-password {
+    color: #007BFF; /* Change the color of the link (e.g., blue) */
+    text-decoration: none; /* Remove the underline from the link */
+    font-size: 14px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    display: inline-block; /* Allow margin to work properly */
+    margin-bottom: 10px; /* Add margin at the bottom */
+}
+
+.forgot-password:hover {
+    color: #0056b3; /* Change color when hovered */
+    text-decoration: underline; /* Add underline on hover for emphasis */
 }
 .remember{
     margin: -5px 0 15px 5px;

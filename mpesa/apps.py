@@ -6,4 +6,4 @@ class MpesaConfig(AppConfig):
     name = 'mpesa'
 
     def ready(self):
-        from . import signals
+        import mpesa.signals

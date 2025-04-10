@@ -1,7 +1,10 @@
 {% load static %}
 {% if error %}
-    <p style="color: red;">{{ error }}</p>
+    <script>
+        alert("{{ error }}");
+    </script>
 {% endif %}
+
 <!DOCTYPE html >
 <html lang="en">
     <head>
@@ -27,8 +30,8 @@
                         <input type="password"id="password" name="password" required>
                         <label for ="password">Password</label>
                     </div>
-                    <div>
-                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    <div class="forgot_password" name="forgot_password">
+                        <a href="{% url 'forgot_password' %}" class="forgot-password">Forgot Password?</a>
                     </div>
                     <div class ="remember">
                         <label ><input type="checkbox"name="checkbox">Remember me</label>

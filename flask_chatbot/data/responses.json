@@ -1,0 +1,41 @@
+{
+    "greetings": {
+        "examples": ["hi", "hello", "hey", "good morning", "good evening"],
+        "response": {
+            "default": "Hello! How can I help you today?",
+            "Employer": "Hello Employer! Ready to find the best talent?",
+            "Worker": "Hello Worker! Looking for your next opportunity?",
+            "Ambassador": "Hello Ambassador! How can you help spread the word today?"
+        }
+    },
+    "job_posting": {
+        "examples": ["how do i post a job", "job posting help", "post a job"],
+        "response": {
+            "default": "To post a job, please make sure you are registered as an employer.",
+            "Employer": "As an Employer, click on the 'Post Job' section to list your job openings.",
+            "Worker": "Sorry, job posting is available only for Employers.",
+            "Ambassador": "Sorry, only Employers can post jobs."
+        }
+    },
+    "bidding": {
+        "examples": ["how do i bid", "bid on jobs", "job bidding help"],
+        "response": {
+            "default": "Bidding is available for registered workers.",
+            "Employer": "Employers post jobs; Our company bids for them.",
+            "Worker": "To bid on a job, go to the 'Available Jobs' section and submit your bid.",
+            "Ambassador": "Ambassadors are not eligible to bid on jobs."
+        }
+    },
+    "ambassador_info": {
+        "examples": ["what does an ambassador do", "ambassador role", "tell me about ambassadors"],
+        "response": {
+            "default": "Ambassadors help us reach a wider audience and build community. Also they help us track our services if there is any issue raised on the ground",
+            "Employer": "Employers can team up with Ambassadors to boost their job posts.",
+            "Worker": "Typically, job bidding is for Workers—not Ambassadors.",
+            "Ambassador": "As an Ambassador, you help promote the platform and forge connections."
+        }
+    },
+    "fallback": {
+        "response": "I'm sorry, I didn't understand that. Could you rephrase your question?"
+    }
+}

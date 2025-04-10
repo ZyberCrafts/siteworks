@@ -11,16 +11,14 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile') 
     role = models.CharField(max_length=50, choices=ROLE_CHOICES)  
-    bio = models.TextField(max_length=500, blank=True)  
+    bio = models.TextField(max_length=500, blank=True) 
+    phone_number = models.CharField(max_length=15, blank = False, null = False) 
     skills = models.CharField(max_length=30, blank=True)  
     location = models.CharField(max_length=15, blank=True)  
     rating = models.IntegerField(default=1)  
     profile_picture = models.ImageField(upload_to='uploads/profile/')
     def __str__(self):
-        return f'{self.user.username} - {self.role}'
-
-    def __str__(self):
-        return f'{self.user.username} - {self.role}'
+        return f"{self.user.username} - {self.role}'s profile"
     
 class Job(models.Model):
     title = models.CharField(max_length=20)

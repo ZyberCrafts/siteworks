@@ -1,12 +1,623 @@
-<!DOCTYPE html >
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Employer Dashboard</title>
-    </head>
-    <body>
-        <h1>Welcome to the Employer Dashboard</h1>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    background-color: lightblue;
+    color: #333;
+}
+
+.nav-frame {
+    width: 250px;
+    padding: 20px;
+    color: #fff;
+}
+
+.nav-frame button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-frame button:hover {
+    background-color: blue;
+}
+
+/* Right Frame */
+.right-frame {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    height: 600px;
+    margin: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+    align-items: center;
+    display: flex;
+}
+
+label {
+    width: 150px;
+    text-align: right;
+    display: block;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+select, textarea {
+    width: 200px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 50px;
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+.validate-btn {
+    background-color: green;
+    color: white;
+    width: auto;
+    padding: 8px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.validate-btn:hover {
+    background-color: blue;
+}
+
+/* Profile Picture */
+.profile-picture {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    overflow: hidden;
+    border: 10px solid blue;
+    border-radius: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Job Status */
+.status-section {
+    margin-top: 20px;
+}
+
+/* ========== Responsive Media Queries ========== */
+
+/* Tablet Screens */
+@media (max-width: 1024px) {
+    .nav-frame {
+        width: 200px;
+        padding: 15px;
+    }
+
+    .nav-frame button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .right-frame {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .nav-frame {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background-color: green;
+        padding: 10px;
+    }
+
+    .nav-frame button {
+        flex: 1 1 45%;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .right-frame {
+        margin: 10px;
+        padding: 10px;
+        height: auto;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100% !important;
+    }
+
+    .profile-buttons {
+        flex-direction: column;
+    }
+
+    .profile-image {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .nav-frame button {
+        flex: 1 1 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .profile-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Panel -->
+<div class="nav-frame">
+    <button onclick="showProfile()">Profile</button>
+    <button onclick="showPostJob()">Post Job</button>
+    <button onclick="showComplaint()">Complain</button>
+    <button onclick="showJobStatus()">Job Status</button>
+</div>
+
+<!-- Right Content Area -->
+<div class="right-frame" id="content">
+    <!-- Profile Section -->
+<div id="profile-section">
+    <h2>Profile</h2>
+    <div class="form-group profile-picture">
+        <div class="profile-image" id="profile-pic"></div>
+        <div class="profile-buttons">
+            <input type="file" id="profile-upload" accept="image/*" style="display: none;" />
+            <button onclick="document.getElementById('profile-upload').click()">Upload</button>
+            <button onclick="modifyImage()">Modify</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username"value="{{ request.user.username }}" readonly/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email"value="{{ request.user.email }}" readonly/>
+    </div>
+    <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="text" name="phone_number" id = "phone_number" placeholder="e.g 0712345678" name= "phone_number" id="phone_number" pattern="^\d{10}$" required />
+    </div>
+    <div class="form-group">
+        <label for="IDNumber">ID Number:</label>
+        <input type="text" id="IDNumber" />
+    </div>
+    <div class="form-group">
+    </div>
+    <button onclick="saveProfile()">Save</button>
+</div>
+
+
+    <!-- Post Job Section -->
+<div id="post-job-section" style="display: none;">
+    <h2>Post Job</h2>
+    <div class="form-group">
+        <label>Category:</label>
+        <select>
+            <option>Mama Fua</option>
+            <option>Mobile Auto Repairs</option>
+            <option>Mobile Barber</option>
+            <option>Pest Fumigation</option>
+            <option>Photographer</option>
+            <option>Plumber</option>
+            <option>Rent a Car/Truck</option>
+            <option>TV Mounting Services </option>
+            <option>Makeup and Beauty</option>
+            <option>Landscaping</option>
+            <option>Interior Painter</option>
+            <option>Interior Designs</option>
+            <option>Handyman</option>
+            <option>Hair Braiding</option>
+            <option>Fridge Repairs</option>
+            <option>Caregiver</option>
+            <option>Events DJ</option>
+            <option>Errands Shopping</option>
+            <option>Electricians</option>
+            <option>French Tutoring</option>
+            <option>DSTVs Installers</option>
+            <option>Drivers-for hire</option>
+            <option>Cooks and Chefs</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Price (KES):</label>
+        <input type="text" id="job-price" placeholder="e.g., 1500.50" oninput="validatePriceInput(this)" />
+    </div>
+    
+    <div class="form-group">
+        <label>Workload:</label>
+        <input type="text" placeholder="please give the description of your job" />
+    </div>
+    
+    <!-- New Image Upload Section -->
+    <div class="form-group">
+        <label>Workload image:</label>
+        <input type="file" id="job-image-upload" accept="image/*" onchange="previewJobImage()" />
+    </div>
+    <div class="form-group">
+        <label></label>
+        <div id="job-image-preview" style="width: 200px; height: 200px; border: 10px solid blue">
+            <!-- Image will be shown here -->
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="profile-location">Location:</label>
+        <input type="text"/>
+    </div>
+    
+    <div class="form-group">
+        <button id="locate-btn" onclick="locateUser()">Locate</button>
+    </div>
+    <div class="form-group">
+        <label>DeadLine (Date):</label>
+        <input type="date" id="urgency-date" />
+    </div>
+    <div class="form-group">
+        <label>DeadLine (Time):</label>
+        <input type="time" id="urgency-time" />
+    </div>
+    <button id="post-job-btn">Post</button>
+
+</div>
+
+    <!-- Complaint Section -->
+    <div id="complaint-section" style="display: none;">
+        <h2>Complain</h2>
+        <textarea placeholder="Type your complaint..."></textarea>
+        <button onclick="submitComplaint()">Submit Complaint</button>
+    </div>
+
+    <!-- Job Status Section -->
+    <div id="job-status-section" style="display: none;">
+        <h2>Job Status</h2>
+        <select>
+            <option>completely done</option>
+            <option>Partially done</option>
+            <option>Not done</option>
+    
+        </select>
+        <button>Check Status</button>
+    </div>
+</div>
+
+<script>
+    function locateUser() {
+        const locationInputs = document.querySelectorAll('input[type="text"]');
+        let manualLocation = "";
+
+        locationInputs.forEach(input => {
+            if (input.previousElementSibling && input.previousElementSibling.innerText.includes("Location")) {
+                manualLocation = input.value.trim();
+            }
+        });
+
+        if (manualLocation !== "") {
+            const query = encodeURIComponent(manualLocation);
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+            window.open(mapUrl, "_blank");
+        } else if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const zoom = 18;
+                const mapUrl = `https://www.google.com/maps/@${lat},${lng},${zoom}z`;
+                window.open(mapUrl, "_blank");
+            }, function(error) {
+                alert("Unable to retrieve your location. Please check permissions or device settings.");
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
+
+    function validatePriceInput(input) {
+        const value = input.value;
+        if (!/^\d*\.?\d{0,2}$/.test(value)) {
+            alert("Only numbers allowed, in format: 1500 or 1500.50");
+            input.value = value.slice(0, -1);
+        }
+    }
+
+    function allowOnlyDigits(event) {
+        const char = String.fromCharCode(event.which);
+        if (!/[0-9]/.test(char)) {
+            event.preventDefault();
+            alert("Only integers allowed");
+        }
+    }
+
+    function previewJobImage() {
+        const file = document.getElementById("job-image-upload").files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("job-image-preview").innerHTML =
+                    '<img src="' + e.target.result + '" style="width:100%; height:100%; object-fit:cover;" />';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function showProfile() {
+        displaySection("profile-section");
+    }
+
+    function showPostJob() {
+        displaySection("post-job-section");
+    }
+
+    function showComplaint() {
+        displaySection("complaint-section");
+    }
+
+    function showJobStatus() {
+        displaySection("job-status-section");
+    }
+
+    function displaySection(sectionId) {
+        document.querySelectorAll('.right-frame > div').forEach(div => div.style.display = 'none');
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Profile upload
+    function updateProfileImage(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("profile-pic").innerHTML = '<img src="' + e.target.result + '" alt="Profile Picture">';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    document.getElementById("profile-upload").addEventListener("change", updateProfileImage);
+
+    function modifyImage() {
+        document.getElementById("profile-upload").click();
+    }
+
+    // ✅ Validate & reset profile
+    function saveProfile() {
+        const firstName = document.getElementById("FirstName");
+        const lastName = document.getElementById("LastName");
+        const phone = document.getElementById("phone");
+        const idNumber = document.getElementById("IDNumber");
+        const location = document.querySelector("#profile-section input[type='text']:nth-child(2)");
+
+        if (!firstName.value || !lastName.value || !phone.value || !idNumber.value || !location.value) {
+            alert("Please fill in all profile fields.");
+            return;
+        }
+
+        alert("Profile saved successfully!");
+
+        // Reset
+        firstName.value = "";
+        lastName.value = "";
+        phone.value = "";
+        idNumber.value = "";
+        location.value = "";
+        document.getElementById("profile-pic").innerHTML = "";
+        document.getElementById("profile-upload").value = "";
+    }
+
+    // ✅ Validate & reset post job
+    document.querySelector("#post-job-section button:last-of-type").addEventListener("click", function () {
+        const category = document.querySelector("#post-job-section select");
+        const price = document.getElementById("job-price");
+        const workload = document.querySelector("#post-job-section input[placeholder*='description']");
+        const location = document.querySelector("#post-job-section input[type='text']:not([placeholder])");
+        const deadlineDate = document.getElementById("urgency-date");
+        const deadlineTime = document.getElementById("urgency-time");
+
+        if (!category.value || !price.value || !workload.value || !location.value || !deadlineDate.value || !deadlineTime.value) {
+            alert("Please fill in all job fields before posting.");
+            return;
+        }
+
+        alert("Job posted successfully!");
+
+        category.selectedIndex = 0;
+        price.value = "";
+        workload.value = "";
+        location.value = "";
+        deadlineDate.value = "";
+        deadlineTime.value = "";
+        document.getElementById("job-image-upload").value = "";
+        document.getElementById("job-image-preview").innerHTML = "";
+    });
+
+    // ✅ Validate & reset complaint
+    function submitComplaint() {
+        const complaintText = document.querySelector("#complaint-section textarea");
+        if (!complaintText.value.trim()) {
+            alert("Please enter your complaint before submitting.");
+            return;
+        }
+
+        alert("Complaint submitted successfully!");
+        complaintText.value = "";
+    }
+
+    // ✅ Validate & reset job status
+    document.querySelector("#job-status-section button").addEventListener("click", function () {
+        const statusSelect = document.querySelector("#job-status-section select");
+        if (!statusSelect.value) {
+            alert("Please select a job status.");
+            return;
+        }
+
+        alert("Job status checked!");
+        statusSelect.selectedIndex = 0;
+    });
+    document.getElementById("post-job-btn").addEventListener("click", function () {
+        const category = document.querySelector("#post-job-section select");
+        const price = document.getElementById("job-price");
+        const workload = document.querySelector("#post-job-section input[placeholder*='description']");
+        const location = document.querySelector("#post-job-section input[type='text']:not([placeholder])");
+        const deadlineDate = document.getElementById("urgency-date");
+        const deadlineTime = document.getElementById("urgency-time");
+    
+        if (!category.value || !price.value || !workload.value || !location.value || !deadlineDate.value || !deadlineTime.value) {
+            alert("Please fill in all job fields before posting.");
+            return;
+        }
+    
+        alert("Job posted successfully!");
+    
+        // Reset fields
+        category.selectedIndex = 0;
+        price.value = "";
+        workload.value = "";
+        location.value = "";
+        deadlineDate.value = "";
+        deadlineTime.value = "";
+        document.getElementById("job-image-upload").value = "";
+        document.getElementById("job-image-preview").innerHTML = "";
+    });
+    document.querySelector("#post-job-section button:last-of-type").addEventListener("click", function () {
+    const category = document.querySelector("#post-job-section select");
+    const price = document.getElementById("job-price");
+    const workload = document.querySelector("#post-job-section input[placeholder*='description']");
+    const location = document.querySelector("#post-job-section input[type='text']:not([placeholder])");
+    const deadlineDate = document.getElementById("urgency-date");
+    const deadlineTime = document.getElementById("urgency-time");
+
+    if (!category.value || !price.value || !workload.value || !location.value || !deadlineDate.value || !deadlineTime.value) {
+        alert("Please fill in all job fields before posting.");
+        return;
+    }
+
+    alert("Job posted successfully!");
+
+    category.selectedIndex = 0;
+    price.value = "";
+    workload.value = "";
+    location.value = "";
+    deadlineDate.value = "";
+    deadlineTime.value = "";
+    document.getElementById("job-image-upload").value = "";
+    document.getElementById("job-image-preview").innerHTML = "";
+});
+
+
+    showProfile(); 
+</script>
+
+
+</body>
 </html>
