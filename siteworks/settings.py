@@ -28,9 +28,10 @@ INSTALLED_APPS = [
     'core',
     'mpesa',
     'django_daraja',
-    'chatbot',
+    'chatbot'
+    ]
 #83054005a7a4cef253d219ed271d224c9ffcacc6
-]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -166,3 +167,8 @@ MPESA_INITIATOR_SECURITY_CREDENTIAL = 'PEUFWSUDD9oAAfDc/dRcKVvs97q0qf3XSQEMBGPLW
  'UUdQEcMnD8D8/j/63ClmUtdrvJzmmYiTK/yTEgRKcPDuBlwAquGa8IRycPJLXm+xyUk3iAc6WJkD2OWk/B/djDQTR86awXsznetr' \
  'gJkrFTROKeukLoPhak904AIVFiuHkWIkYGpjA5R/vMOwb6UFVIcdAESzTRfMjjLd7BSSC5poIh1mdxCnVCyGq7VL/1qw4p+ZRmz1' \
  '2e4M4DjKYDLP7hAaweHp3RpmGRyAr0HN/qwvQ3rJElzvZlVC18MKjh7sF7frezQOMjuOySIuJ4t+jnvw=='
+MPESA_INITIATOR_SECURITY_CREDENTIAL = 'PEUFWSUDD9oAAfDc/dRcKVvs97q0qf3XSQEMBGPLWT1Q/u0b/6ZlhNSQo0116h' \
+ 'UUdQEcMnD8D8/j/63ClmUtdrvJzmmYiTK/yTEgRKcPDuBlwAquGa8IRycPJLXm+xyUk3iAc6WJkD2OWk/B/djDQTR86awXsznetr' \
+ 'gJkrFTROKeukLoPhak904AIVFiuHkWIkYGpjA5R/vMOwb6UFVIcdAESzTRfMjjLd7BSSC5poIh1mdxCnVCyGq7VL/1qw4p+ZRmz1' \
+ '2e4M4DjKYDLP7hAaweHp3RpmGRyAr0HN/qwvQ3rJElzvZlVC18MKjh7sF7frezQOMjuOySIuJ4t+jnvw=='
+#83054005a7a4cef253d219ed271d224c9ffcacc6
