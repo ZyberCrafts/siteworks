@@ -15,7 +15,7 @@ def reg_callback(request):
    "ConfirmationURL":regurl,
    'ValidationURL':regurl}
    headers={
-      'Authorization':'Bearer EVLRvGHKNSvbK0YfgAbA7gYqqj7L',
+      #'Authorization':'Bearer EVLRvGHKNSvbK0YfgAbA7gYqqj7L',
       'Content-type':'application/json' }
    response=requests.post(url=url,headers=headers,data=body)
    return HttpResponse(response)

@@ -24,11 +24,11 @@
             <div id = "navbar" class="obj-width">
                 <a href = "{% url 'home' %}"><img class = "logo" src="{% static 'images/sitelogo.png' %}" alt= "logo"></a>
                 <ul id = "menu">
-                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="">Home</a></li>
                     <li><a href="">Browse Jobs</a></li>
                     <li><a href="">Post Jobs</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">About Us</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
                     <button onclick= "window.location.href='{% url 'login' %}' " id ="join">Join</button>
                 </ul>
                 <i id="bar"class='bx bx-menu-alt-right'></i>
@@ -95,11 +95,9 @@
                 </div>
                 <div onclick= "window.location.href='{% url 'login' %}' ">
                     <img src="{% static 'images/english.avif' %}" alt="Job Image">
-<<<<<<< HEAD
                     <h3>French Tutoring</h3>
 =======
                     <h3 style="cursor: default;">English Tutoring</h3>
->>>>>>> d2363116a01b5cbf1e576bd4ca9128575be978e6
                 </div>
                 <div onclick= "window.location.href='{% url 'login' %}' ">
                     <img src="{% static 'images/errands.jpg' %}" alt="Job Image">
@@ -260,7 +258,7 @@
                     <div class="skill">
                         <span id="key">Mama Fua</span>
                     </div>
-                    <button id = "profile">View Profile</button>
+                    <button onclick= "window.location.href='{% url 'profile_jane' %}' "id = "profile">View Profile</button>
                 </div>
                 <div class="f1-box">
                     <img src="{% static 'images/fl-2.png' %}" alt="Team Member">
@@ -268,7 +266,7 @@
                     <div class="skill">
                         <span id="key">Deliver Rider</span>
                     </div>
-                    <button id = "profile">View Profile</button>
+                    <button onclick= "window.location.href='{% url 'profile_festus' %}'"id = "profile">View Profile</button>
                 </div>
                 <div class="f1-box">
                     <img src="{% static 'images/fl-3.png' %}" alt="Team Member">
@@ -276,7 +274,7 @@
                     <div class="skill">
                         <span id="key">Mobile Barber</span>
                     </div>
-                    <button id = "profile">View Profile</button>
+                    <button onclick= "window.location.href='{% url 'profile_peter' %}' "id = "profile">View Profile</button>
                 </div>
                 <div class="f1-box">
                     <img src="{% static 'images/fl-4.png' %}" alt="Team Member">
@@ -312,10 +310,10 @@
                     </div>
                     <div>
                         <h3>Community</h3>
-                        <a href ="#">GitHub</a>
+                        <a href ="https://github.com/">GitHub</a>
                         <a href ="#">Issues</a>
                         <a href ="#">Project</a>
-                        <a href ="#">Twitter</a>
+                        <a href ="https://x.com/?utm_source=homescreen&utm_medium=shortcut">Twitter</a>
                     </div>
                     <div>
                         <h3>Help</h3>

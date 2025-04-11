@@ -27,8 +27,8 @@ def reg_callback(request):
 def auth_token():
   url='https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
   
-  res=requests.get(url,auth=HTTPBasicAuth('fK7TnqdWkc8AztAKGUGPBYSlQ3AH8o7nPkqRPDOENSzFIrT8',
-      '32rotjNmHNwh0hq1z0jQfmdJiAOBXArg4MxkTiDFLA5AbrLetjsNtVDm7osp9CiK'))
+#   res=requests.get(url,auth=HTTPBasicAuth('fK7TnqdWkc8AztAKGUGPBYSlQ3AH8o7nPkqRPDOENSzFIrT8',
+#       '32rotjNmHNwh0hq1z0jQfmdJiAOBXArg4MxkTiDFLA5AbrLetjsNtVDm7osp9CiK'))
   token=res.json()['access_token']
   return 'Bearer'+token
 
