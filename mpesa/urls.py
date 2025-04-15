@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns=[
-    path('daraja',views.reg_callback,name='index')
+    #path('daraja',views.reg_callback,name='index')     payment is handled automatically  no request
 ]

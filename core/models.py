@@ -21,13 +21,13 @@ class Profile(models.Model):
         return f"{self.user.username} - {self.role}'s profile"
     
 class Job(models.Model):
-    title = models.CharField(max_length=20)
+    category = models.CharField(max_length=20)
     description = models.CharField(max_length=300, default='',blank = True, null=True)
     location = models.CharField(max_length= 15)
     budget = models.DecimalField(default = 0, decimal_places= 2, max_digits=6)
-    posted_date = models.DateTimeField(auto_now_add=True)
+    posted_date = models.DateTimeField()
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
-        
+    contact =models.CharField(max_length=10)
     def __str__(self):
         return f'{self.title}'
 

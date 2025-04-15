@@ -41,22 +41,18 @@ def ni_push(request):
    }
    res=request.post()
 
-def index():
+def index(tel,budget):
     client = MpesaClient()
-    phone_number = '0768909403'
-    amount = 2
+    phone_number = tel
+    amount = int(budget)
     account_reference = 'Siteworks'
     transaction_desc = 'Payment'
     callback_url = 'https://api.darajambili.com/express-payment'
     response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return HttpResponse(response)
 
-@receiver(request_finished)
-def initiate_payment(sender, **kwargs):
-    index()
-    #async def run_payment():
-       #### await asyncio.sleep(1)  # Await for 1 second before payment initiation
-       #### response = await index('0768909403', 2)  # Await the index function properly
-        #return HttpResponse(response)  # You cannot return this HttpResponse here
-
-    #asyncio.run(run_payment())
+@receiver(post_save,sender=Job)
+def initiate_payment(sender,instance,created, **kwargs):
+   print('Job posted successfully @receiver'+'tel:'+instance.contact)
+   if created:
+      index(instance.contact,instance.budget)

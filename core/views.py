@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .models import Profile  
+from .models import Profile,Job 
 from django.core.mail import send_mail   
 from .forms import ForgotPasswordForm     
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode 
@@ -13,6 +13,8 @@ from .utils import create_email_campaign
 from sib_api_v3_sdk import Configuration, ApiClient, TransactionalEmailsApi
 from sib_api_v3_sdk.models import SendSmtpEmail
 from sib_api_v3_sdk.rest import ApiException 
+from django.http import HttpResponse
+import datetime
   
 def home (request):
     return render(request, 'home.html')
@@ -182,3 +184,19 @@ def create_campaign_view(request):
 
     create_email_campaign(api_key, campaign_name, subject, sender_name, sender_email, html_content, list_ids, scheduled_time)
     return JsonResponse({"status": "Campaign created successfully!"})
+
+def post_job(request):
+    if request.user.is_authenticated:
+        category=request.POST.get('category')
+        description=request.POST.get('workload')
+        location=request.POST.get('location')
+        budget=request.POST.get('price')
+        date=request.POST.get('deadlineDate')
+        time=request.POST.get('deadlineTime')
+        posted_date=datetime.datetime(int(date[0:4]),int(date[5:7]),int(date[8:]),int(time[0:2]),int(time[3:]))
+        user=request.user
+        contact=request.POST.get('contact')
+        job=Job(category=category,description=description,location=location,budget=budget,
+                posted_date=posted_date,employer=user,contact=contact)
+        job.save()
+        return render(request,'employer.html')

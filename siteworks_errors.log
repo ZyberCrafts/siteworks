@@ -86,3 +86,351 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: core/templates/forgot_password.html
 "POST /forgot-password/ HTTP/1.1" 500 90617
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view core.views.post_job didn't return an HttpResponse object. It returned None instead.
+"OPTIONS /jpost HTTP/1.1" 500 64857
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 79, in login_view
+    return render(request, 'employer.html', {'user': user, 'role': role})  # Load employer.html
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 573, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 262: 'static'. Did you forget to register or load this tag?
+"POST /login/ HTTP/1.1" 500 148900
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view core.views.post_job didn't return an HttpResponse object. It returned None instead.
+"POST /jpost HTTP/1.1" 500 67988
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 196, in post_job
+    posted_date=datetime.datetime(date[0:4],date[5:7],date[8:],time[0:2],time[3:])
+TypeError: 'str' object cannot be interpreted as an integer
+"POST /jpost HTTP/1.1" 500 68477
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table core_job has no column named category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 202, in post_job
+    job.save()
+    ~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: table core_job has no column named category
+"POST /jpost HTTP/1.1" 500 153058
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 203, in post_job
+    return HttpResponse(category+' '+description+' '+location+'  '+budget+'  '+posted_date+'  '+contact)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+TypeError: can only concatenate str (not "datetime.datetime") to str
+"POST /jpost HTTP/1.1" 500 68409
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 201, in post_job
+    job.save()
+    ~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1013, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\HomePC\Desktop\siteworks\mpesa\signals.py", line 58, in initiate_payment
+    index(instance.contact,instance.budget)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\Desktop\siteworks\mpesa\signals.py", line 51, in index
+    response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\core.py", line 81, in stk_push
+    raise MpesaInvalidParameterException('Amount must be an integer')
+django_daraja.mpesa.exceptions.MpesaInvalidParameterException: Amount must be an integer
+"POST /jpost HTTP/1.1" 500 97286
+Internal Server Error: /jpost
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000002B36B9FAA50>: Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B36B9FAA50>: Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\utils.py", line 125, in generate_access_token_request
+    r = requests.get(url, auth=(consumer_key, consumer_secret))
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='sandbox.safaricom.co.ke', port=443): Max retries exceeded with url: /oauth/v1/generate?grant_type=client_credentials (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B36B9FAA50>: Failed to resolve 'sandbox.safaricom.co.ke' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HomePC\Desktop\siteworks\core\views.py", line 201, in post_job
+    job.save()
+    ~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\base.py", line 1013, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\HomePC\Desktop\siteworks\mpesa\signals.py", line 58, in initiate_payment
+    index(instance.contact,instance.budget)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HomePC\Desktop\siteworks\mpesa\signals.py", line 51, in index
+    response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\core.py", line 115, in stk_push
+    'Authorization': 'Bearer ' + mpesa_access_token(),
+                                 ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\utils.py", line 176, in mpesa_access_token
+    access_token = generate_access_token()
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\utils.py", line 144, in generate_access_token
+    r = generate_access_token_request()
+  File "C:\Users\HomePC\AppData\Local\Programs\Python\Python313\Lib\site-packages\django_daraja\mpesa\utils.py", line 127, in generate_access_token_request
+    raise MpesaConnectionError('Connection failed')
+django_daraja.mpesa.exceptions.MpesaConnectionError: Connection failed
+"POST /jpost HTTP/1.1" 500 215473

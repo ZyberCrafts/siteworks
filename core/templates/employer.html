@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,6 +259,7 @@ img {
 
 <!-- Navigation Panel -->
 <div class="nav-frame">
+    <button><img style="width: 20px;width: 20px;margin-right: 4px;font-weight: 600;" src={% static '/images/dashboard.png' %} alt="dashboard">Dashboard</button>
     <button onclick="showProfile()">Profile</button>
     <button onclick="showPostJob()">Post Job</button>
     <button onclick="showComplaint()">Complain</button>
@@ -301,11 +302,13 @@ img {
 
 
     <!-- Post Job Section -->
-<div id="post-job-section" style="display: none;">
+<form method="POST" action="/jpost">
+    {% csrf_token %}
+  <div id="post-job-section" style="display: none;">
     <h2>Post Job</h2>
     <div class="form-group">
         <label>Category:</label>
-        <select>
+        <select name="category">
             <option>Mama Fua</option>
             <option>Mobile Auto Repairs</option>
             <option>Mobile Barber</option>
@@ -333,12 +336,12 @@ img {
     </div>
     <div class="form-group">
         <label>Price (KES):</label>
-        <input type="text" id="job-price" placeholder="e.g., 1500.50" oninput="validatePriceInput(this)" />
+        <input type="text" name="price" placeholder="e.g., 1500.50" />
     </div>
     
     <div class="form-group">
         <label>Workload:</label>
-        <input type="text" placeholder="please give the description of your job" />
+        <input type="text" name="workload" id="workload" placeholder="please give the description of your job" />
     </div>
     
     <!-- New Image Upload Section -->
@@ -355,7 +358,7 @@ img {
     
     <div class="form-group">
         <label for="profile-location">Location:</label>
-        <input type="text"/>
+        <input name="location" id="location" type="text"/>
     </div>
     
     <div class="form-group">
@@ -363,16 +366,20 @@ img {
     </div>
     <div class="form-group">
         <label>DeadLine (Date):</label>
-        <input type="date" id="urgency-date" />
+        <input type="date" name="deadlineDate" />
     </div>
     <div class="form-group">
         <label>DeadLine (Time):</label>
-        <input type="time" id="urgency-time" />
+        <input type="time"  name="deadlineTime"/>
     </div>
-    <button id="post-job-btn">Post</button>
+    <div class="form-group">
+        <label>Contact:</label>
+        <input type="text" id="contact" name="contact" minlength="10" maxlength="10"/>
+    </div>
+    <button id="post-job-btn" type="submit">Post</button>
 
-</div>
-
+  </div>
+</form>
     <!-- Complaint Section -->
     <div id="complaint-section" style="display: none;">
         <h2>Complain</h2>
@@ -576,7 +583,6 @@ img {
             alert("Please fill in all job fields before posting.");
             return;
         }
-    
         alert("Job posted successfully!");
     
         // Reset fields
